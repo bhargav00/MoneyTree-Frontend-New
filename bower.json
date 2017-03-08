@@ -1,0 +1,28 @@
+{
+  "name": "money-tree",
+  "description": "gmi project",
+  "main": "index.js",
+  "authors": [
+    "bhargav00 <bmaniar00@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bhargav00/Money-Tree-GMI",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-animate": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "angular-resource": "1.5.x",
+    "angular-route": "1.5.x",
+    "bootstrap": "3.3.x",
+    "jquery": "2.2.x",
+    "angular-ui-router": "^0.4.2"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
