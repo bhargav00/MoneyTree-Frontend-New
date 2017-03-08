@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="sapp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Moneytree</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <script src="../bower_components/angular/angular.js"></script>
+    <!--<script src="../bower_components/angular-route/angular-ui-router.js"></script>-->
+    <script src="../angular-ui-router.js"></script>
+    <script src="pm_route.js"></script>
+    <script src="../shared/moneytree_header.js"></script>
+    <script src="../shared/search_component.js"></script>
+
+    <!--<script src="pm_home.js"></script>-->
+    <script src="no_button_table.js"></script>
+    <script src="draft_table.js"></script>
+    <script src="pm_new_order/form_component.js"></script>
+    <script src="../shared/index_footer.js"></script>  
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" type=" text/css" href="../css/moneytree_header.css" />
+
+
+
+</head>
+
+<body>
+    <header class="header container-fluid bg-success header_div">
+        <div>
+            <header-component></header-component>
+        </div>
+    </header>
+    <nav class="navbar navbar-default container hidden-xs hidden-sm col-md-12">
+        <div class="row">
+            <ul class="nav navbar-nav nav-tabs nav-justified">
+                <li><a href="#/">PORTFOLIO</a></li>
+                <li><a href="#/addorder">ADD NEW ORDER</a></li>
+                <li><a href="#/orderdraft">ORDER DRAFT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hidden-md visible-xs-block visible-sm-block dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="#/">PORTFOLIO</a>
+            <a href="#/addorder">ADD NEW ORDER</a>
+            <a href="#/orderdraft">ORDER DRAFT</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+    <footer>
+        <footer-component></footer-component>
+    </footer>
+</body>
+
+</html>

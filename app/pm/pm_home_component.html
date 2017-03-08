@@ -1,0 +1,24 @@
+<div class="row">
+    <h1><pre class="col-md-6 col-xs-12 col-sm-12">NET WORTH: {{$ctrl.netWorth|currency}}</pre></h1>
+    <h1><pre class="col-md-6 col-xs-12 col-sm-12">CASH BALANCE: {{$ctrl.cashBal|currency}}</pre></h1>
+</div>
+<div class="row table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <th ng-repeat="(key,value) in $ctrl.recentPMdetails[0]">{{key}}</th>
+        <th>Operation</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="demo in $ctrl.recentPMdetails">
+                <td ng-repeat="test in demo">
+                    {{test}}
+                </td>
+                <td ng-if="demo.status=='incomplete'">
+                    <button class="btn btn-default " ng-click="fun()" >edit</button>
+                    <button class="btn btn-default " ng-click="fun()">delete</button>
+                    </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

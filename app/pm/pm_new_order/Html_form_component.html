@@ -1,0 +1,83 @@
+<form class="form row">
+    <section class="col-sm-6">
+        <div class="form-group">
+            <label class="hidden-xs" for="search_stock">SEARCH STOCK : </label>
+
+            <input class="form-control" type="search" ng-clock ng-model="$ctrl.searchStock" ng-change="$ctrl.getData($ctrl.searchStock)" />
+            <div class=" table-responsive" ng-show="$ctrl.searchStock">
+                <table class="table table-bordered table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Stock Name</th>
+                            <th>Stock Id</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <br>
+                        <tr ng-repeat="stock in $ctrl.stocks | filter:$ctrl.searchStock" ng-click="$ctrl.selectStock(stock)" ng-model="$ctrl.stocker">
+                            <td>{{stock.stock_name}}</td>
+                            <td>{{stock.s_id}}</td>
+                            <td>{{stock.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="trader">SELECT TRADER : </label>
+            <select class="form-control" ng-options="trader.name for trader in $ctrl.traders" ng-model="$ctrl.tradername">
+                        <option></option> 
+                    </select>
+        </div>
+    </section>
+    <section class="col-sm-6">
+        <div class="form-group">
+            <label class="hidden-xs" for="quantity">QUANTITY:</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity" ng-model="$ctrl.quantity">
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-12 col-sm-6">
+                <label for="side">SIDE: &nbsp;&nbsp;</label>
+                <input type="radio" id="side" name="side" ng-model="$ctrl.side" value="buy">Buy&nbsp;&nbsp;</label>
+                <input type="radio" id="side" name="side" ng-model="$ctrl.side" value="sell">Sell</label>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <label for="symbol">SYMBOL: &nbsp;&nbsp;</label>
+                <input type="radio" id="symbol" name="symbol" ng-model="$ctrl.symbol" value="bse">BSE&nbsp;&nbsp;</label>
+                <input type="radio" id="symbol" name="symbol" ng-model="$ctrl.symbol" value="nse">NSE</label>
+            </div>
+        </div>
+        <div class="checkbox">
+            <label>ORDER TYPE:</label>
+            <label><input type="checkbox" ng-model="current" name="price" ng-disabled="limit||stop||both"/>CURRENT</label>
+            <label><input type="checkbox" ng-model="limit" name="price" ng-disabled="current||stop||both"/>LIMIT</label>
+            <label><input type="checkbox" ng-model="stop" name="price" ng-disabled="current||limit||both"/>STOP LOSS</label>
+            <label><input type="checkbox" ng-model="both" name="price" ng-disabled="current||limit||stop"/>BOTH</label>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="col-md-4 hidden-xs" for="current_price">CURRENT PRICE : </label>
+                <input class="col-md-6" type="text" id="current_price" placeholder="Enter Current Price" ng-model="$ctrl.current_price" ng-disabled="limit||stop||both" >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-md-4 hidden-xs" for="limit_price">LIMIT PRICE : </label>
+                <input class="col-md-6" type="text" id="limit_price" placeholder="Enter Limit Price" ng-model="$ctrl.limit_price" ng-disabled="current||stop">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-md-4 hidden-xs" for="stop_loss">STOP LOSS : </label>
+                <input class="col-md-6" type="text" id="stop_loss" placeholder="Enter Stop Loss" ng-model="$ctrl.stop_price" ng-disabled="current||limit">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-info" ng-click="$ctrl.draft_form()">DRAFT</button>
+            <button class="btn btn-primary" ng-click="$ctrl.submit_form()">SUBMIT</button>
+        </div>
+    </section>
+</form>
